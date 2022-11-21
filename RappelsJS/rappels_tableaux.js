@@ -26,4 +26,21 @@ console.log(res2);
 
 
 //Fonction map
+const res3 = fruits.map((el) => el.toUpperCase());
+console.log(res3);
 
+
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);  
+    fruits[i] += 's';
+}
+
+console.log(fruits);
+
+for (const f of fruits) {
+    console.log(f);
+}
+
+fruits.forEach((f) => {
+    console.log(f);
+});
