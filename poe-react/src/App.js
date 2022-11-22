@@ -5,6 +5,8 @@ import Routage from './pages/Routage';
 import Navigation from './components/Navigation';
 import Logo from './components/Logo';
 import Static from './pages/Static';
+import State from './pages/State';
+import Props from './pages/Props';
 
 function App() {
   
@@ -24,6 +26,9 @@ function App() {
           <Route path='/' element={<Presentation />}></Route>
           <Route path="/routing" element={<Routage/>} ></Route>
           <Route path="/static" element={<Static/>} ></Route>
+          <Route path="/hooks" element={<State/>} ></Route>
+          <Route path='/props' element={<Props/>}></Route>
+
         </Routes>
 
 
