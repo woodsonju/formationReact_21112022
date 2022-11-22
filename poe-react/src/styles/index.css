@@ -1,3 +1,19 @@
+
+/*
+  Index.css contient les tyes globaux qui sont appliqués à l'ensemble de l'application
+
+  :root   : Répresente un élément qui est à la racine du document 
+            En HTML, il s'agt généralement de l'élément <html> 
+
+            On déclare des propriété personnalisés qui définissent des variables qui vont être referencée avec la notation var()
+
+           La fonction <hsl() définit une couleur à partir de quatre paramètres qui sont la teinte (hue), la saturation,  la luminosité, et 
+          l'opacité (le canal alpha) 
+
+*/
+
+
+
 :root {
   --main: hsla(196, 64%, 37%, 1);
   --secondary: hsla(174, 79%, 43%, 1);
