@@ -18,3 +18,18 @@ h1 {
 h2 {
   color: var(--error);
 }
+
+
+.card  {
+  background-color: var(--warning);
+  color: var(--dark);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
