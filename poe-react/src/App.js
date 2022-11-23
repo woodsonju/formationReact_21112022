@@ -8,6 +8,9 @@ import Static from './pages/Static';
 import State from './pages/State';
 import Props from './pages/Props';
 import { BackBtn } from './components/Buttons';
+import Connexion from './pages/Connexion';
+import Effect from './pages/Effect';
+import Request from './pages/Request';
 
 function App() {
   
@@ -29,7 +32,9 @@ function App() {
           <Route path="/static" element={<Static/>} ></Route>
           <Route path="/hooks" element={<State/>} ></Route>
           <Route path='/props' element={<Props/>}></Route>
-
+          <Route path='/login' element={<Connexion/>}></Route>
+          <Route path='/effect' element={<Effect/>}></Route>
+          <Route path='/request' element={<Request/>}></Route>
         </Routes>
 
           <BackBtn />
