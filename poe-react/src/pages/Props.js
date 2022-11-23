@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Product, ProductObj } from "../components/Product";
+import { Btn } from "../components/Buttons";
+import { Product, ProductObj, ProductTyped } from "../components/Product";
 
 const Props = () => {
 
@@ -27,6 +28,18 @@ const Props = () => {
 
     //Hook d'état : useState 
     const[isLoading, setLoading] = useState(false);
+
+    /*
+        Mettre à true isLoading 
+        Ensuite Mettre à false isLoading pendant 5 sec
+    */
+   const testBtn = () => {
+        setLoading(true);
+        console.log("Coucou");
+        setTimeout(() => {
+            setLoading(false);
+        }, 5000)
+   }
 
 
     //JSX
@@ -71,7 +84,7 @@ const Props = () => {
                     <ul>
                         <li>Propriété non passée</li>
                         <li>Mauvais type</li>
-                        <li>Errer sur le nom d'une prop</li>
+                        <li>Erreur sur le nom d'une prop</li>
                     </ul>
                     <p>Pour pallier à ça, il existe une librairie : prop-types</p>
                     <p>npm i prop-types</p>
@@ -82,6 +95,17 @@ const Props = () => {
                     </ul>
               
                     <h3>Produits typés : </h3>   
+                    <div className="grid">
+                        <ProductTyped name={'Machin'} price={300}/>
+                        <ProductTyped name={'Bidule'}  price={300} action={() => alert('Coucou')}/>
+                    </div>
+                </article>
+                <article>
+                    <h2>Test Bouton : </h2>
+                    <div>
+                        <Btn action={testBtn} loading={isLoading}  txt={'Clic Clic'}/>
+                        <Btn action={testBtn} disabled={true} txt={'Clic Clic'}/>
+                    </div>
                 </article>
             </main>
         </>

@@ -7,6 +7,7 @@ import Logo from './components/Logo';
 import Static from './pages/Static';
 import State from './pages/State';
 import Props from './pages/Props';
+import { BackBtn } from './components/Buttons';
 
 function App() {
   
@@ -31,7 +32,7 @@ function App() {
 
         </Routes>
 
-
+          <BackBtn />
       </BrowserRouter>
 
     </div>

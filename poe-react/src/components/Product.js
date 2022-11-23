@@ -7,7 +7,7 @@ export const Product = (props) => {
     const name = props.name;  //On recupère la valeur 
     return (
         <div className="card">
-            <h2>{name}</h2>  {/* On l'affiche*/}
+            <h3>{name}</h3>  {/* On l'affiche*/}
         </div>
     )
 }
