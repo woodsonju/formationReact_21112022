@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Product } from "../components/Product";
+import { Product, ProductObj } from "../components/Product";
 
 const Props = () => {
 
     /*
-        Le state est lié au composant  
+        Le state est lié au composant, est restreint à un composant
         Une props est une propriété que l'on passe à un composant 
-        C'est une donnée qui vient de l'exterieur  du composant géneralement , de son parent direct (mais pas toujours)
+        C'est une donnée qui vient de l'exterieur  du composant géneralement , de son parent direct (mais pas toujours le cas)
         Les composant parents partagent leurs données avec leurs enfants via les props
 
         Les composants sont comme des fonctions JavaScript 
@@ -15,11 +15,13 @@ const Props = () => {
     */
 
     const prod = 'Ecran';
+
     const products = ['Ordinateur', 'Souris', 'Clavier'];
+
     const obj_produts = [
         {id : 1, name: 'Pomme', price: 2}, 
         {id : 2, name: 'Mouchoirs', price: 1}, 
-        {id : 2, name: 'T-shirt', price: 2}, 
+        {id : 3, name: 'T-shirt', price: 2}, 
     ]
 
 
@@ -27,6 +29,7 @@ const Props = () => {
     const[isLoading, setLoading] = useState(false);
 
 
+    //JSX
     return (
         <>
             <h1>Les props</h1>
@@ -42,9 +45,43 @@ const Props = () => {
                             Cela peut -etre n'importe quel type de donnée
                             
                         */}
-                        <Product dfdfdf="Tasse"/>
-                        
+                        <Product name="Tasse"/>
+                        <Product name={prod} />
+                        <Product />
+                        {
+                            products.map(p => <Product key={p} name={p}/>)
+                        }   
                     </div>
+                    
+                    <h3>Objets</h3>
+                    <div className="grid">
+                        {
+                            obj_produts.map(p => <ProductObj key={p.id} name={p.name} price={p.price}/>)
+                        }
+                        <ProductObj name="Café" price="2" currency="$"/>
+                        <ProductObj name="Thé" />
+                        <ProductObj name="Beurre de Cacahuète" price="quatre"/>
+                        <ProductObj name="Beurre d'amande" prix="5"/>
+                    </div>
+
+                </article>
+                <article>
+                    <h2>Typage</h2>
+                    <p>Les props, et la souplesse de JS sur les types peuvent poser problème : </p>
+                    <ul>
+                        <li>Propriété non passée</li>
+                        <li>Mauvais type</li>
+                        <li>Errer sur le nom d'une prop</li>
+                    </ul>
+                    <p>Pour pallier à ça, il existe une librairie : prop-types</p>
+                    <p>npm i prop-types</p>
+                    <p>Attention : </p>
+                    <ul>
+                        <li>Ne fonctionne qu'avec les attributs calculés {'prop={valeur}'}</li>
+                        <li>C'est librairie de développement, qui ne lance que des warnings</li>
+                    </ul>
+              
+                    <h3>Produits typés : </h3>   
                 </article>
             </main>
         </>
