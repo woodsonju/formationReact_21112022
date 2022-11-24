@@ -9,6 +9,8 @@ const Request = () => {
     const [character, setCharacter] = useState({});
     const [id, setId] = useState(1);
 
+    const[length, setlength] = useState(0);
+
 
     const swapi_people = "https://swapi.dev/api/people/";
 
@@ -23,6 +25,11 @@ const Request = () => {
     const getCharacter = async () => {
         const {data} = await axios.get(swapi_people + id);
         setCharacter(data);
+    }
+
+    const getLength = async () => {
+        const {data} = await axios.get(swapi_people);
+        setlength(data.count);
     }
 
     //Recuperer la liste des characters 
@@ -40,6 +47,9 @@ const Request = () => {
         getCharacter();
     }, [id])
 
+    useEffect(() => {
+        getLength();
+    }, [])
 
     return(
         <>
@@ -57,7 +67,7 @@ const Request = () => {
                 <h2>Avec filtre dynamique : </h2>
                 <p>
                     <button disabled={id <= 1} onClick={() => setId(id - 1)}>Précedent</button>
-                    <button  onClick={() => setId(id + 1)}>Suivant</button>
+                    <button disabled={id >= length} onClick={() => setId(id + 1)}>Suivant</button>
                 </p>
                 <div className="card">
                     <h3>{character.name}</h3>
