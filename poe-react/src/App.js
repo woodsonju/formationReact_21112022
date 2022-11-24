@@ -11,6 +11,8 @@ import { BackBtn } from './components/Buttons';
 import Connexion from './pages/Connexion';
 import Effect from './pages/Effect';
 import Request from './pages/Request';
+import Forms from './pages/Forms';
+import UserDetails from './pages/UserDetails';
 
 function App() {
   
@@ -35,6 +37,8 @@ function App() {
           <Route path='/login' element={<Connexion/>}></Route>
           <Route path='/effect' element={<Effect/>}></Route>
           <Route path='/request' element={<Request/>}></Route>
+          <Route path='/forms' element={<Forms/>}></Route>
+          <Route path='/users/:id' element={<UserDetails/>}></Route>
         </Routes>
 
           <BackBtn />
