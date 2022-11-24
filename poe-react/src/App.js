@@ -13,6 +13,7 @@ import Effect from './pages/Effect';
 import Request from './pages/Request';
 import Forms from './pages/Forms';
 import UserDetails from './pages/UserDetails';
+import NotFound from './pages/NotFound';
 
 function App() {
   
@@ -39,6 +40,7 @@ function App() {
           <Route path='/request' element={<Request/>}></Route>
           <Route path='/forms' element={<Forms/>}></Route>
           <Route path='/users/:id' element={<UserDetails/>}></Route>
+          <Route path='*' element={<NotFound/>}></Route>
         </Routes>
 
           <BackBtn />

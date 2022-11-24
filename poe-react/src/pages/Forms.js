@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import ShowForm from "../components/ShowForm";
 
 const Forms = () => {
 
@@ -32,6 +33,23 @@ const Forms = () => {
     }, []);
 
 
+    //Methode HandleSubmit
+    //1-Recuperer les données dans le champs Input 
+    //2- Avec ces données créer un objet user 
+    //3- Appeler la méthode createUser en lui passant l'objet user
+    //4- Reinitialiser le formulaire avec des valeurs vide
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(e);
+        const form = e.target;  //un tableau avec les inputs
+        const name = form[0].value;  //valeur du 1er input du form 
+        const email = form[1].value;
+        const user = {name, email}; //equivalent à {name:name, email:email}
+        createUser(user);
+        form[0].value = "";
+        form[1].value = "";
+    }
+
     return (
         <>
         <h1>Formulaire</h1>
@@ -50,17 +68,31 @@ const Forms = () => {
                         )
                 }
             </div>
-
+            
 
             {/* 
                 Créer un formulaire 
-                Label - Input 
+                Label Nom - Input Nom
+                Label Email - Input Email
                 Button 
                 
             */}
-            <form onSubmit={handleSubmit}>
-
-            </form>
+            <h2>Form: </h2>
+            <fieldset>
+                <legend>Nouvel.le utilisateur.trice</legend>
+                <form onSubmit={handleSubmit}>
+                    <p>
+                        <label htmlFor="name">Name</label>
+                        <input id="name"/>
+                    </p>
+                    <p>
+                        <label htmlFor="email">Email</label>
+                        <input id="email"/>
+                    </p>
+                    <button type="submit">Créer</button>
+                </form>
+            </fieldset>
+            <ShowForm create={createUser}/>
         </main>
         
         </>
