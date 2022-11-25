@@ -4,13 +4,22 @@ import App from './App';
 import './styles/index.css';
 
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // React Strict Mode est utilisé pour détecter les bogues en mode développement 
   //Nous permet d'écrire du code de meilleure qualité
   <React.StrictMode>
-    <App />
+    {/* 
+      On import le store redux que venant de créer, on place un provider autour de notre application 
+      et transmettons le store en tant que 'props' <Provider store={store}>
+      Desormais, le store est disponible pour tous les components du provider 
+    */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

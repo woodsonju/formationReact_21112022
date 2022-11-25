@@ -14,6 +14,7 @@ import Request from './pages/Request';
 import Forms from './pages/Forms';
 import UserDetails from './pages/UserDetails';
 import NotFound from './pages/NotFound';
+import Redux from './pages/Redux';
 
 function App() {
   
@@ -40,6 +41,7 @@ function App() {
           <Route path='/request' element={<Request/>}></Route>
           <Route path='/forms' element={<Forms/>}></Route>
           <Route path='/users/:id' element={<UserDetails/>}></Route>
+          <Route path='/redux' element={<Redux/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
         </Routes>
 

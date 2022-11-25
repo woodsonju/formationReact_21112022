@@ -114,7 +114,7 @@ console.log(book);
 // book.lang = 'en';
 
 //Affectation par decomposition / destructuring 
-const{title, year : publish_year, lang='en',  ...rest}  = book;
+const{title}  = book;
 
 console.log(title, publish_year);
 console.log(rest);
